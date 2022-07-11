@@ -4,55 +4,71 @@
 <head>
 	<meta charset="utf-8">
 	<title>JS_Calc. New version</title>
-	<link href="newVersion.css" rel="stylesheet">
-	<script src="calc.js"></script>
+	<link href="css/newVersion.css" rel="stylesheet">
+	<script src="js/newversion.js"></script>
 </head>
 
 <body>
 	<table>
-		<div id="inputs">
-			<tr>
-				<td colspan="4" id="Input">
-					<input type="text" id="InputInput">
-				</td>
-			</tr>
-			<tr>
-				<td colspan="4" id="InputResult">
-					<input type="text" id="InputResultInput">
-				</td>
-			</tr>
-		</div>
-		<div id="buttons">
-			<tr>
-				<td class="solo" id="Delete">Delete</td>
-				<td class="solo" id="/">/</td>
-				<td class="solo" id="*">*</td>
-				<td class="solo" id="-">-</td>
-			</tr>
-			<tr>
-				<td class="solo" id="7">7</td>
-				<td class="solo" id="8">8</td>
-				<td class="solo" id="9">9</td>
-				<td class="rowspan" rowspan="2" id="+">+</td>
-			</tr>
-			<tr>
-				<td class="solo" id="4">4</td>
-				<td class="solo" id="5">5</td>
-				<td class="solo" id="6">6</td>
-			</tr>
-			<tr>
-				<td class="solo" id="1">1</td>
-				<td class="solo" id="2">2</td>
-				<td class="solo" id="3">3</td>
-				<td class="rowspan" rowspan="2" id="=">=
-				<td>
-			</tr>
-			<tr>
-				<td class="colspan" colspan="2" id="0">0</td>
-				<td class="solo" id=".">.</td>
-			</tr>
-		</div>
+		<tr>
+			<td class="textInput" colspan="4">
+				<input type="text" id="textInput">
+			</td>
+		</tr>
+		<tr>
+			<td class="textShow" colspan="4">
+				<input type="text" id="textShow" disabled>
+			</td>
+		</tr>
+		<tr class="button1">
+			<td class="solo"><button onclick="reset()">Delete</button>
+			</td>
+			<td class="solo"><button onclick="check(`/`)">/</button>
+			</td>
+			<td class="solo"><button onclick="check(`*`)">*</button>
+			</td>
+			<td class="solo"><button onclick="check(`-`)">-</button>
+			</td>
+		</tr>
+		<tr class="button2">
+			<td class="solo"><button onclick="print(7)">7</button>
+			</td>
+			<td class="solo"><button onclick="print(8)">8</button>
+			</td>
+			<td class="solo"><button onclick="print(value)" value="9">9</button>
+			</td>
+			<td class="rowspan" rowspan="2"><button onclick="check(`+`)">+</button></td>
+		</tr>
+		<tr class="button3">
+			<td class="solo"><button onclick="print(4)">4</button>
+			</td>
+			<td class="solo"><button onclick="print(5)">5</button>
+			</td>
+			<td class="solo"><button onclick="print(6)">6</button>
+			</td>
+		</tr>
+		<tr class="button4">
+			<td class="solo"><button onclick="print(1)">1</button>
+			</td>
+			<td class="solo"><button onclick="print(2)">2</button>
+			</td>
+			<td class="solo"><button onclick="print(3)">3</button>
+			</td>
+			<td class="rowspan" rowspan="2"><button onclick="calc()">=</button>
+			<td>
+		</tr>
+		<tr name="button5" class="button5">
+			<td class="colspan" colspan="2"><button onclick="print(0)">0</button class="buttons">
+			</td>
+			<td name="button5" class="solo"><button onclick="print(`.`)">.</button>
+			</td>
+		</tr>
 	</table>
+
+	<script>
+		var textInput = document.getElementById("textInput");
+		var textShow = document.getElementById("textShow");
+	</script>
 </body>
 
 </html>

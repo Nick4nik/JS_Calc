@@ -1,4 +1,4 @@
-function start(path, index, oldV, newV) {
+function start(path, index, oldV) {
 	if (path.includes(index)) {
 		let variant = confirm("Hello. It`s time to create calc with prompts and console. Or you can choose new. Yes = old version. No = new version.");
 
@@ -12,9 +12,6 @@ function start(path, index, oldV, newV) {
 	else if (path.includes(oldV)) {
 		alert("Watch to the console for results. For another operation reload this page");
 		oldVersion();
-	}
-	else if (path.includes(newV)) {
-		newVersion();
 	}
 }
 
@@ -95,13 +92,8 @@ function oldVersion() {
 
 }
 
-function newVersion() {
-	alert("Sorry. This page is still under development");
-}
-
 let path = document.documentURI;
 let index = "index.html";
 let oldV = "oldVersion.html";
-let newV = "newVersion.html";
 
-start(path, index, oldV, newV);
+start(path, index, oldV);
