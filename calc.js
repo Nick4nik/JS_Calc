@@ -19,61 +19,80 @@ function start(path, index, oldV, newV) {
 }
 
 function oldVersion() {
-	let a = prompt("Enter the first number", 0);
+	let a;
+	let b;
+	let c;
 
-	if (isNaN(a)) {
-		alert("You value is incorrect. This page will reload");
-		document.location.reload();
+	function firstStep() {
+		a = prompt("Enter the first number", 0);
+
+		if (isNaN(a)) {
+			alert("You value is incorrect. This page will reload");
+			document.location.reload();
+		}
+
+		a = Number(a);
+		console.log("First number is:", a);
 	}
 
-	a = Number(a);
-	console.log("First number is:", a);
+	function secondStep() {
+		b = prompt("Enter the action", "---");
 
-	let b = prompt("Enter the action", "---");
-
-	if (b == "*" || b == "/" || b == "-" || b == "+") {
-		console.log("You action is:", b);
-		nextStep();
-	}
-	else {
-		alert("You value is incorrect. This page will reload");
-		document.location.reload();
+		if (b == "*" || b == "/" || b == "-" || b == "+") {
+			console.log("You action is:", b);
+		}
+		else {
+			alert("You value is incorrect. This page will reload");
+			document.location.reload();
+		}
 	}
 
-	function nextStep() {
-		let c = prompt("Enter the second number", 0);
-		c = Number(c);
+	function thirdStep() {
+		c = prompt("Enter the second number", 0);
 
 		if (isNaN(c)) {
 			alert("You value is incorrect. This page will reload");
 			document.location.reload();
 		}
 
+		c = Number(c);
 		console.log("Second number is:", c);
-
-		function calculate(a, b, c) {
-			let result;
-			switch (b) {
-				case "*":
-					result = a * c;
-					break;
-				case "/":
-					result = a / c;
-					break;
-				case "-":
-					result = a - c;
-					break;
-				case "+":
-					result = a + c;
-					break;
-			}
-			return console.log(`The result of the operation "${a} ${b} ${c}" is "${result}"`);
-		}
 	}
 
+	function calculate(a, b, c) {
+		let result;
+		switch (b) {
+			case "*":
+				result = a * c;
+				break;
+			case "/":
+				result = a / c;
+				break;
+			case "-":
+				result = a - c;
+				break;
+			case "+":
+				result = a + c;
+				break;
+		}
+		console.log(`The result of the operation "${a} ${b} ${c}" is "${result}"`);
+		console.log("Result is:", result);
+	}
 
+	firstStep();
 
-	calculate(a, b, c);
+	if (a != undefined) {
+		secondStep();
+	}
+
+	if (b != undefined) {
+		thirdStep();
+	}
+
+	if (c != undefined) {
+		calculate(a, b, c);
+	}
+
 }
 
 function newVersion() {
